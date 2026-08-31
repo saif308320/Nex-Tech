@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexTech Solutions | Web, App & Cloud Engineering</title>
+<meta name="description" content="NexTech Solutions - full-stack digital engineering company in Gurugram. Web development, mobile apps, cloud and AI solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233b82f6'/><path d='M50 14l31 20v32l-31 20-31-20V34z' fill='none' stroke='white' stroke-width='4'/><path d='M38 56l-7-10-6 10' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/><path d='M48 56l11-16' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/><circle cx='65' cy='56' r='4' fill='white'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "NexTech Solutions",
+  "description": "Full-stack digital engineering company offering web development, mobile app development and cloud & DevOps solutions.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Tower A, Cyber City",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "postalCode": "122002",
+    "addressCountry": "IN"
+  },
+  "telephone": "+91-124-4567-8901",
+  "email": "info@nextechsolutions.in",
+  "openingHours": ["Mo-Fr 09:00-19:00", "Sa 10:00-16:00"],
+  "priceRange": "$$",
+  "sameAs": []
+}
+</script>
+<style>
+:root{
+  --bg:#05070f;
+  --bg-2:#0a0f22;
+  --bg-3:#0e1530;
+  --card:rgba(255,255,255,.03);
+  --blue:#3b82f6;
+  --blue-2:#60a5fa;
+  --cyan:#22d3ee;
+  --violet:#8b5cf6;
+  --text:#eef2ff;
+  --muted:#8b93b5;
+  --border:rgba(120,150,255,.14);
+  --glow:0 0 40px rgba(59,130,246,.35);
+  --grotesk:'Space Grotesk',sans-serif;
+  --inter:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--inter);overflow-x:hidden;line-height:1.65}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--blue),var(--cyan));border-radius:10px}
+::selection{background:var(--blue);color:#fff}
+
+/* Preloader */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+#loader.hide{opacity:0;visibility:hidden}
+.loader-logo{font-family:var(--grotesk);font-weight:700;font-size:34px;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.loader-logo i{display:inline-block;width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,var(--blue),var(--cyan));animation:blink 1s infinite alternate}
+@keyframes blink{from{opacity:.3;transform:scale(.8)}to{opacity:1;transform:scale(1.1)}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--grotesk);font-weight:600;font-size:14px;letter-spacing:.5px;padding:16px 34px;border-radius:12px;transition:.35s;border:none;position:relative;overflow:hidden}
+.btn-prime{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;box-shadow:var(--glow)}
+.btn-prime:hover{transform:translateY(-3px);box-shadow:0 0 60px rgba(59,130,246,.5)}
+.btn-ghost{border:1px solid var(--border);color:var(--text);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue-2);transform:translateY(-3px);background:rgba(59,130,246,.06)}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 0;transition:.4s}
+nav.scrolled{background:rgba(5,7,15,.85);backdrop-filter:blur(20px);padding:12px 0;border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--grotesk);font-size:22px;font-weight:700;letter-spacing:.5px}
+.logo .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;position:relative;box-shadow:var(--glow)}
+.logo .mark i{width:16px;height:16px;border-radius:4px;border:2px solid #fff;position:relative}
+.logo .mark i::after{content:'';position:absolute;inset:-4px;border-radius:6px;border:1.5px solid rgba(255,255,255,.5)}
+.logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--muted);position:relative;padding:4px 0;transition:.3s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:.3s;border-radius:2px}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:12px 26px;font-size:13px}
+.burger{display:none;flex-direction:column;gap:6px;cursor:pointer;z-index:1001;padding:6px}
+.burger span{width:28px;height:2px;background:var(--text);transition:.35s}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:rgba(5,7,15,.98);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;visibility:hidden;transition:.4s}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:var(--grotesk);font-size:30px;font-weight:600;color:var(--muted);transition:.3s}
+.mobile-menu a:hover{color:var(--cyan)}
+
+/* Hero with 3D geometric background */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 80px}
+#geoCanvas{position:absolute;inset:0;z-index:0}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:60px 60px;z-index:0;mask-image:radial-gradient(circle at 50% 40%,#000 30%,transparent 80%)}
+.hero-glow1{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.18),transparent 60%);top:-100px;left:-100px;z-index:0;filter:blur(30px);animation:glowMove 9s ease-in-out infinite}
+.hero-glow2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.14),transparent 60%);bottom:-80px;right:-80px;z-index:0;filter:blur(30px);animation:glowMove 11s ease-in-out infinite reverse}
+@keyframes glowMove{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,40px)}}
+.hero-inner{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--blue-2);padding:8px 18px;border-radius:40px;font-size:13px;font-weight:500;letter-spacing:.5px;margin-bottom:26px;opacity:0;animation:fadeUp 1s .2s forwards}
+.hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hero h1{font-family:var(--grotesk);font-size:clamp(44px,6.5vw,82px);font-weight:700;line-height:1.05;margin-bottom:24px;opacity:0;animation:fadeUp 1s .35s forwards}
+.hero h1 .grad{background:linear-gradient(120deg,var(--blue-2),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 .stroke{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.35)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-sub{color:var(--muted);font-size:17px;max-width:540px;margin-bottom:36px;opacity:0;animation:fadeUp 1s .5s forwards}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp 1s .65s forwards}
+.hero-stats{display:flex;gap:44px;margin-top:56px;flex-wrap:wrap;opacity:0;animation:fadeUp 1s .8s forwards}
+.hstat h3{font-family:var(--grotesk);font-size:38px;font-weight:700;line-height:1;color:#fff}
+.hstat h3 em{font-style:normal;color:var(--cyan)}
+.hstat p{color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:1.5px;margin-top:6px}
+
+/* Hero visual: orbiting tech globe */
+.hero-visual{position:relative;height:460px;display:flex;align-items:center;justify-content:center;opacity:0;animation:fadeUp 1s .6s forwards}
+.orbit{position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid rgba(59,130,246,.2);animation:spin 22s linear infinite}
+.orbit:nth-child(2){width:300px;height:300px;animation-duration:16s;animation-direction:reverse}
+.orbit:nth-child(3){width:180px;height:180px;animation-duration:10s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orbit i{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+.orbit:nth-child(1) i{top:-7px;left:50%}.orbit:nth-child(1) i:nth-child(2){top:50%;left:-7px;background:var(--violet);box-shadow:0 0 14px var(--violet)}
+.orbit:nth-child(1) i:nth-child(3){bottom:-7px;left:50%;background:var(--blue)}
+.orbit:nth-child(2) i{top:-7px;right:30%}
+.orbit:nth-child(2) i:nth-child(2){bottom:15%;left:-7px;background:var(--violet);box-shadow:0 0 14px var(--violet)}
+.orbit:nth-child(3) i{top:50%;right:-7px}
+.orbit:nth-child(3) i:nth-child(2){top:-7px;left:20%;background:var(--blue);box-shadow:0 0 14px var(--blue)}
+.core{width:120px;height:120px;border-radius:32px;background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(34,211,238,.1));border:1px solid rgba(59,130,246,.4);display:grid;place-items:center;position:relative;box-shadow:0 0 60px rgba(59,130,246,.25),inset 0 0 40px rgba(34,211,238,.08);backdrop-filter:blur(6px)}
+.core::before{content:'';position:absolute;inset:-14px;border-radius:44px;border:1px dashed rgba(59,130,246,.3);animation:spin 30s linear infinite}
+.core b{font-family:var(--grotesk);font-size:44px;background:linear-gradient(135deg,var(--blue-2),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.float-chip{position:absolute;background:rgba(10,15,34,.9);border:1px solid var(--border);border-radius:12px;padding:10px 16px;font-family:var(--grotesk);font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.4);animation:float 5s ease-in-out infinite}
+.float-chip i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.float-chip.c1{top:12%;right:6%}
+.float-chip.c2{bottom:16%;left:0%;animation-delay:1.2s}
+.float-chip.c2 i{background:var(--violet);box-shadow:0 0 10px var(--violet)}
+.float-chip.c3{top:44%;left:-4%;animation-delay:2.1s}
+.float-chip.c3 i{background:var(--blue);box-shadow:0 0 10px var(--blue)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* Section shells */
+section{padding:110px 0;position:relative}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 70px}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--grotesk);color:var(--cyan);letter-spacing:3px;text-transform:uppercase;font-size:13px;font-weight:600;margin-bottom:16px}
+.sec-eyebrow::before,.sec-eyebrow::after{content:'';width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--cyan))}
+.sec-eyebrow::after{background:linear-gradient(90deg,var(--cyan),transparent)}
+.sec-head h2{font-family:var(--grotesk);font-size:clamp(36px,5vw,56px);font-weight:700;line-height:1.1;margin-bottom:18px}
+.sec-head h2 .grad{background:linear-gradient(120deg,var(--blue-2),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sec-head p{color:var(--muted);font-size:16px;max-width:600px;margin:0 auto}
+
+/* Services */
+.services{background:var(--bg-2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.service{position:relative;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px 32px;transition:.4s;overflow:hidden}
+.service::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transform:scaleX(0);transform-origin:left;transition:.5s}
+.service::after{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.14),transparent 70%);top:-80px;right:-80px;opacity:0;transition:.5s}
+.service:hover{transform:translateY(-10px);border-color:rgba(59,130,246,.5);box-shadow:0 0 50px rgba(59,130,246,.15),0 24px 50px rgba(0,0,0,.4)}
+.service:hover::before{transform:scaleX(1)}
+.service:hover::after{opacity:1}
+.service .icon{width:68px;height:68px;border-radius:18px;background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(34,211,238,.12));border:1px solid rgba(59,130,246,.3);display:grid;place-items:center;font-size:30px;margin-bottom:24px;transition:.5s;position:relative;z-index:2}
+.service:hover .icon{transform:rotateY(180deg) scale(1.1);box-shadow:0 0 30px rgba(59,130,246,.4)}
+.service .icon svg{width:32px;height:32px;fill:none;stroke:var(--blue-2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:.5s}
+.service:hover .icon svg{stroke:var(--cyan)}
+.service h3{font-family:var(--grotesk);font-size:22px;font-weight:600;margin-bottom:12px;position:relative;z-index:2}
+.service p{color:var(--muted);font-size:14.5px;margin-bottom:22px;position:relative;z-index:2}
+.service ul{list-style:none;display:flex;flex-direction:column;gap:9px;position:relative;z-index:2}
+.service li{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--text);opacity:.85}
+.service li::before{content:'';width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));flex-shrink:0;box-shadow:0 0 8px var(--blue)}
+.service .num{position:absolute;top:22px;right:26px;font-family:var(--grotesk);font-size:44px;font-weight:700;color:rgba(255,255,255,.05);z-index:1;transition:.4s}
+.service:hover .num{color:rgba(59,130,246,.18)}
+
+/* Process */
+.process{background:var(--bg)}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.proc{position:relative;text-align:center;padding:36px 22px;background:var(--card);border:1px solid var(--border);border-radius:18px;transition:.4s}
+.proc:hover{transform:translateY(-8px);border-color:rgba(34,211,238,.4);box-shadow:0 0 40px rgba(34,211,238,.12)}
+.proc .step{width:60px;height:60px;margin:0 auto 18px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;font-family:var(--grotesk);font-size:22px;font-weight:700;color:#fff;box-shadow:var(--glow)}
+.proc h3{font-family:var(--grotesk);font-size:18px;font-weight:600;margin-bottom:8px}
+.proc p{color:var(--muted);font-size:13.5px}
+.proc-arrow{position:absolute;top:50%;right:-18px;transform:translateY(-50%);color:var(--blue);font-size:20px;z-index:2}
+
+/* Stats band */
+.stats-band{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.sb-item{border-right:1px solid var(--border);padding:10px 20px}
+.sb-item:last-child{border-right:none}
+.sb-item h3{font-family:var(--grotesk);font-size:48px;font-weight:700;background:linear-gradient(120deg,var(--blue-2),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sb-item p{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:1.5px;margin-top:6px}
+
+/* Portfolio */
+.portfolio{background:var(--bg)}
+.port-tabs{display:flex;justify-content:center;gap:14px;margin-bottom:50px;flex-wrap:wrap}
+.port-tab{padding:11px 26px;border-radius:40px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--grotesk);font-size:13.5px;font-weight:500;transition:.3s}
+.port-tab.active,.port-tab:hover{border-color:var(--blue);color:var(--blue-2);background:rgba(59,130,246,.08)}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.port-card{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:.4s;cursor:pointer}
+.port-card:hover{transform:translateY(-8px);border-color:rgba(59,130,246,.5);box-shadow:0 0 40px rgba(59,130,246,.2)}
+.port-img{height:240px;overflow:hidden;position:relative}
+.port-img img{width:100%;height:100%;object-fit:cover;transition:.8s}
+.port-card:hover .port-img img{transform:scale(1.1)}
+.port-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,7,15,.9))}
+.port-cat{position:absolute;top:16px;left:16px;z-index:2;font-family:var(--grotesk);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:30px;background:rgba(5,7,15,.7);border:1px solid var(--border);color:var(--cyan);backdrop-filter:blur(6px)}
+.port-body{padding:24px 26px 28px}
+.port-body h3{font-family:var(--grotesk);font-size:20px;font-weight:600;margin-bottom:8px}
+.port-body p{color:var(--muted);font-size:14px;margin-bottom:16px}
+.port-tags{display:flex;gap:8px;flex-wrap:wrap}
+.port-tags span{font-size:11.5px;padding:5px 12px;border-radius:30px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);color:var(--blue-2)}
+
+/* Clients */
+.clients{background:var(--bg-2)}
+.client-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+.client{display:flex;align-items:center;justify-content:center;padding:30px 20px;background:var(--card);border:1px solid var(--border);border-radius:14px;font-family:var(--grotesk);font-weight:700;font-size:18px;color:var(--muted);letter-spacing:.5px;transition:.4s;filter:grayscale(1);opacity:.6}
+.client:hover{filter:none;opacity:1;color:var(--text);border-color:rgba(59,130,246,.4);transform:translateY(-5px);box-shadow:0 0 30px rgba(59,130,246,.1)}
+.client i{font-style:normal;background:linear-gradient(135deg,var(--blue-2),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* About */
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-visual{position:relative}
+.about-visual .main{border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.about-visual .main img{height:480px;width:100%;object-fit:cover}
+.about-visual::before{content:'';position:absolute;top:-20px;left:-20px;width:160px;height:160px;border:2px solid var(--blue);border-radius:24px;opacity:.35}
+.about-visual::after{content:'';position:absolute;bottom:-20px;right:-20px;width:160px;height:160px;border:2px solid var(--cyan);border-radius:24px;opacity:.3}
+.about-float{position:absolute;bottom:-24px;left:-14px;background:rgba(10,15,34,.95);border:1px solid var(--border);border-radius:16px;padding:20px 26px;display:flex;gap:16px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.about-float b{font-family:var(--grotesk);font-size:38px;color:var(--cyan)}
+.about-float span{color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:1px}
+.about h2{font-family:var(--grotesk);font-size:clamp(34px,4.5vw,50px);font-weight:700;line-height:1.12;margin-bottom:22px}
+.about h2 .grad{background:linear-gradient(120deg,var(--blue-2),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.about p{color:var(--muted);font-size:15.5px;margin-bottom:18px}
+.about-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0 36px}
+.apoint{display:flex;gap:11px;align-items:center;font-size:14px}
+.apoint::before{content:'✓';width:24px;height:24px;border-radius:50%;background:rgba(59,130,246,.15);color:var(--cyan);display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0}
+
+/* Tech stack */
+.tech{background:var(--bg-2)}
+.tech-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.tech-chip{display:flex;align-items:center;gap:10px;padding:13px 24px;border-radius:40px;background:var(--card);border:1px solid var(--border);font-family:var(--grotesk);font-size:14.5px;font-weight:500;color:var(--text);transition:.35s;cursor:default}
+.tech-chip i{width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue)}
+.tech-chip:hover{transform:translateY(-4px);border-color:rgba(59,130,246,.5);box-shadow:0 0 30px rgba(59,130,246,.2)}
+.tech-chip:nth-child(odd) i{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tech-chip:nth-child(3n) i{background:var(--violet);box-shadow:0 0 10px var(--violet)}
+
+/* Testimonials */
+.testimonials{background:var(--bg)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.testi{position:relative;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:34px;transition:.35s}
+.testi:hover{transform:translateY(-6px);border-color:rgba(59,130,246,.4);box-shadow:0 0 40px rgba(59,130,246,.1)}
+.testi::before{content:'';position:absolute;top:26px;right:28px;width:34px;height:26px;background:linear-gradient(135deg,var(--blue),var(--cyan));clip-path:polygon(0 0,100% 0,100% 100%);opacity:.15}
+.testi-stars{color:var(--cyan);letter-spacing:3px;margin-bottom:16px;font-size:14px}
+.testi p{color:var(--muted);font-size:14.5px;margin-bottom:24px}
+.testi-user{display:flex;align-items:center;gap:14px}
+.testi-user img{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--blue)}
+.testi-user h5{font-family:var(--grotesk);font-size:15px;font-weight:600}
+.testi-user span{color:var(--muted);font-size:12px}
+
+/* CTA */
+.cta-band{background:linear-gradient(120deg,var(--bg-3),var(--bg-2));border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,rgba(59,130,246,.18),transparent 45%),radial-gradient(circle at 15% 70%,rgba(34,211,238,.12),transparent 40%)}
+.cta-inner{max-width:1280px;margin:0 auto;padding:80px 24px;position:relative;z-index:2;text-align:center}
+.cta-inner h2{font-family:var(--grotesk);font-size:clamp(32px,4.5vw,52px);font-weight:700;margin-bottom:16px}
+.cta-inner h2 .grad{background:linear-gradient(120deg,var(--blue-2),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cta-inner p{color:var(--muted);max-width:540px;margin:0 auto 36px;font-size:16px}
+
+/* Contact */
+.contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:50px}
+.c-cards{display:flex;flex-direction:column;gap:20px}
+.c-card{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;transition:.35s}
+.c-card:hover{border-color:rgba(59,130,246,.5);transform:translateX(6px);box-shadow:0 0 30px rgba(59,130,246,.1)}
+.c-card .icon{width:52px;height:52px;flex-shrink:0;border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(34,211,238,.12));border:1px solid rgba(59,130,246,.3);display:grid;place-items:center;font-size:22px}
+.c-card h4{font-family:var(--grotesk);font-size:17px;font-weight:600;margin-bottom:6px}
+.c-card p{color:var(--muted);font-size:14px;line-height:1.7}
+.contact-form{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:15px 18px;background:var(--bg);border:1px solid var(--border);border-radius:12px;color:var(--text);font-family:var(--inter);font-size:14.5px;transition:.3s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,.12)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-group select option{background:var(--bg-2)}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success.open{display:block}
+.form-success .big{font-size:60px;margin-bottom:14px}
+.form-success h3{font-family:var(--grotesk);font-size:26px;margin-bottom:8px}
+.form-success p{color:var(--muted)}
+
+/* Footer */
+footer{background:var(--bg-2);border-top:1px solid var(--border);padding:70px 0 0}
+.foot-grid{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:50px;padding-bottom:50px}
+.foot-brand p{color:var(--muted);font-size:14px;margin:18px 0 24px;max-width:320px}
+.foot-social{display:flex;gap:12px}
+.foot-social a{width:42px;height:42px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:grid;place-items:center;transition:.3s;color:var(--muted)}
+.foot-social a:hover{color:#fff;border-color:var(--blue);box-shadow:0 0 20px rgba(59,130,246,.3);transform:translateY(-4px)}
+.foot-col h4{font-family:var(--grotesk);font-size:16px;font-weight:600;margin-bottom:22px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.foot-col a{color:var(--muted);font-size:14px;transition:.3s}
+.foot-col a:hover{color:var(--cyan);padding-left:6px}
+.news-form{display:flex;gap:10px;margin-top:16px}
+.news-form input{flex:1;padding:13px 16px;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--text);outline:none;font-family:var(--inter);transition:.3s;font-size:13.5px}
+.news-form input:focus{border-color:var(--blue)}
+.news-form button{width:48px;height:48px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-size:17px;transition:.3s}
+.news-form button:hover{transform:rotate(-6deg) scale(1.05)}
+.foot-bottom{border-top:1px solid var(--border);padding:24px 0;text-align:center;color:var(--muted);font-size:13px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(50px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* Back to top */
+#toTop{position:fixed;bottom:30px;right:30px;width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--cyan));border:none;color:#fff;font-size:20px;cursor:pointer;z-index:900;opacity:0;visibility:hidden;transform:translateY(20px);transition:.4s;box-shadow:var(--glow)}
+#toTop.show{opacity:1;visibility:visible;transform:translateY(0)}
+#toTop:hover{transform:translateY(-4px)}
+
+/* WhatsApp float */
+#waBtn{position:fixed;bottom:30px;left:30px;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;z-index:900;box-shadow:0 12px 30px rgba(37,211,102,.4);transition:.35s}
+#waBtn:hover{transform:scale(1.1) rotate(-8deg)}
+#waBtn svg{animation:waPulse 2s infinite}
+@keyframes waPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+/* Scroll progress */
+#progressBar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));z-index:2000;width:0;transition:width .1s}
+
+@media(max-width:1024px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-visual{height:380px}
+  .services-grid,.port-grid{grid-template-columns:1fr 1fr}
+  .proc-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:70px}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .sb-item{border-right:none;border-bottom:1px solid var(--border);padding:20px}
+}
+@media(max-width:640px){
+  section{padding:80px 0}
+  .services-grid,.port-grid,.proc-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .proc-arrow{display:none}
+  .hero-stats{gap:26px}
+  .about-visual .main img{height:360px}
+  .foot-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="loader">
+  <div class="loader-logo"><i></i>NexTech</div>
+</div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo"><span class="mark"><i></i></span>Nex<span>Tech</span></a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-prime nav-cta">Start a Project</a>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#portfolio">Work</a>
+  <a href="#clients">Clients</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- Hero -->
+<header class="hero" id="home">
+  <canvas id="geoCanvas"></canvas>
+  <div class="hero-grid"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag"><span class="dot"></span>Engineering Digital Products Since 2015</span>
+      <h1>We Build Digital<br><span class="grad">Products</span> That<br><span class="stroke">Move Business</span></h1>
+      <p class="hero-sub">NexTech Solutions is a full-stack engineering studio in Gurugram. We design, build and scale web platforms, mobile apps and cloud infrastructure for ambitious teams.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-prime">Book a Free Consultation</a>
+        <a href="#portfolio" class="btn btn-ghost">View Our Work</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><h3><em data-count="250">0</em>+</h3><p>Projects Delivered</p></div>
+        <div class="hstat"><h3><em data-count="120">0</em>+</h3><p>Happy Clients</p></div>
+        <div class="hstat"><h3><em data-count="45">0</em>+</h3><p>Engineers & Designers</p></div>
+        <div class="hstat"><h3><em data-count="9">0</em>+</h3><p>Years of Excellence</p></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orbit"><i></i><i></i><i></i></div>
+      <div class="orbit"><i></i><i></i></div>
+      <div class="orbit"><i></i><i></i></div>
+      <div class="core"><b>N</b></div>
+      <div class="float-chip c1"><i></i>Web Apps</div>
+      <div class="float-chip c2"><i></i>Cloud & DevOps</div>
+      <div class="float-chip c3"><i></i>Mobile</div>
+    </div>
+  </div>
+</header>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">What We Do</span>
+      <h2>Solutions Engineered <span class="grad">For Impact</span></h2>
+      <p>Three core disciplines, one integrated team. From first wireframe to global scale.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service reveal">
+        <span class="num">01</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3>Web Development</h3>
+        <p>High-performance websites and web platforms that convert visitors into customers.</p>
+        <ul>
+          <li>React / Next.js frontends</li>
+          <li>Node.js & Python backends</li>
+          <li>E-commerce & SaaS platforms</li>
+          <li>Progressive web apps</li>
+        </ul>
+      </div>
+      <div class="service reveal d1">
+        <span class="num">02</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        </div>
+        <h3>Mobile Applications</h3>
+        <p>Native-quality iOS & Android apps built fast with modern cross-platform engineering.</p>
+        <ul>
+          <li>React Native & Flutter</li>
+          <li>iOS / Android native</li>
+          <li>App store launch support</li>
+          <li>Push & analytics integration</li>
+        </ul>
+      </div>
+      <div class="service reveal d2">
+        <span class="num">03</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M3 15h18v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"/><path d="M12 5v14"/></svg>
+        </div>
+        <h3>Cloud & DevOps</h3>
+        <p>Scalable cloud architecture and automated pipelines that keep you shipping.</p>
+        <ul>
+          <li>AWS / GCP / Azure</li>
+          <li>Kubernetes & Docker</li>
+          <li>CI/CD automation</li>
+          <li>Cost & security optimisation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">How We Work</span>
+      <h2>Our <span class="grad">Process</span></h2>
+      <p>A transparent, proven path from idea to launch — no surprises.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="step">01</div><h3>Discover</h3><p>Deep-dive workshops to align on goals, users and success metrics.</p></div>
+      <div class="proc-arrow">→</div>
+      <div class="proc reveal d1"><div class="step">02</div><h3>Design</h3><p>Wireframes to polished UI — prototypes tested with real users.</p></div>
+      <div class="proc-arrow">→</div>
+      <div class="proc reveal d2"><div class="step">03</div><h3>Build</h3><p>Agile sprints, weekly demos and clean, maintainable code.</p></div>
+      <div class="proc-arrow">→</div>
+      <div class="proc reveal d3"><div class="step">04</div><h3>Scale</h3><p>Launch, monitor and continuously optimise performance & growth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats band -->
+<section class="stats-band">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="sb-item"><h3><span data-count="99.9" data-decimals="1">0</span>%</h3><p>Uptime Achieved</p></div>
+      <div class="sb-item"><h3><span data-count="500">0</span>M+</h3><p>Requests / Day</p></div>
+      <div class="sb-item"><h3><span data-count="38">0</span>ms</h3><p>Avg. Load Time</p></div>
+      <div class="sb-item"><h3><span data-count="94">0</span>%</h3><p>Client Retention</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Our Work</span>
+      <h2>Projects That <span class="grad">Speak</span></h2>
+      <p>A selection of products we've designed, built and scaled.</p>
+    </div>
+    <div class="port-tabs reveal">
+      <button class="port-tab active" data-filter="all">All</button>
+      <button class="port-tab" data-filter="web">Web</button>
+      <button class="port-tab" data-filter="mobile">Mobile</button>
+      <button class="port-tab" data-filter="cloud">Cloud</button>
+    </div>
+    <div class="port-grid">
+      <div class="port-card reveal" data-cat="web">
+        <div class="port-img"><span class="port-cat">Web Platform</span><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Fintech dashboard"></div>
+        <div class="port-body"><h3>Finora Banking</h3><p>Digital banking dashboard serving 2M+ users with real-time analytics.</p><div class="port-tags"><span>React</span><span>Node.js</span><span>PostgreSQL</span></div></div>
+      </div>
+      <div class="port-card reveal d1" data-cat="mobile">
+        <div class="port-img"><span class="port-cat">Mobile App</span><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80" alt="Fitness mobile app"></div>
+        <div class="port-body"><h3>FitTrack Go</h3><p>Cross-platform fitness companion with offline-first training plans.</p><div class="port-tags"><span>Flutter</span><span>Firebase</span></div></div>
+      </div>
+      <div class="port-card reveal d2" data-cat="cloud">
+        <div class="port-img"><span class="port-cat">Cloud Infrastructure</span><img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&w=900&q=80" alt="Cloud architecture"></div>
+        <div class="port-body"><h3>MediCloud</h3><p>HIPAA-compliant cloud platform migrating 40TB of healthcare data.</p><div class="port-tags"><span>AWS</span><span>Kubernetes</span></div></div>
+      </div>
+      <div class="port-card reveal" data-cat="web">
+        <div class="port-img"><span class="port-cat">E-Commerce</span><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80" alt="E-commerce store"></div>
+        <div class="port-body"><h3>UrbanKart</h3><p>Headless commerce storefront that lifted conversion by 32%.</p><div class="port-tags"><span>Next.js</span><span>Shopify</span></div></div>
+      </div>
+      <div class="port-card reveal d1" data-cat="mobile">
+        <div class="port-img"><span class="port-cat">Mobile App</span><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80" alt="Delivery app"></div>
+        <div class="port-body"><h3>QuickDine</h3><p>Food delivery app with live order tracking across 14 cities.</p><div class="port-tags"><span>React Native</span><span>Node.js</span></div></div>
+      </div>
+      <div class="port-card reveal d2" data-cat="cloud">
+        <div class="port-img"><span class="port-cat">DevOps</span><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" alt="Server infrastructure"></div>
+        <div class="port-body"><h3>LogixOps</h3><p>Automated CI/CD pipelines cutting deployment time by 70%.</p><div class="port-tags"><span>GitLab CI</span><span>Docker</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clients -->
+<section class="clients" id="clients">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Trusted By</span>
+      <h2>Brands We've <span class="grad">Partnered With</span></h2>
+      <p>From ambitious startups to Fortune 500 enterprises.</p>
+    </div>
+    <div class="client-grid reveal">
+      <div class="client"><i>Vertex</i></div>
+      <div class="client"><i>NovaBank</i></div>
+      <div class="client"><i>CloudPeak</i></div>
+      <div class="client"><i>Orbital</i></div>
+      <div class="client"><i>Zenith</i></div>
+      <div class="client"><i>PulsePay</i></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="main"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80" alt="NexTech engineering team"></div>
+        <div class="about-float"><b data-count="120">0</b><span>Products<br>In Production</span></div>
+      </div>
+      <div class="reveal d1">
+        <span class="sec-eyebrow">About NexTech</span>
+        <h2>A Team That Treats Your Product <span class="grad">Like Its Own</span></h2>
+        <p>Founded in 2015 in Cyber City, Gurugram, NexTech began with five engineers and a simple belief: software should be built with the same care as a product, not a project.</p>
+        <p>Today our 45-strong team of engineers, designers and cloud architects partners with startups and enterprises across 12 countries — shipping products, not just code.</p>
+        <div class="about-points">
+          <div class="apoint">Senior-only engineering talent</div>
+          <div class="apoint">Transparent, fixed-scope pricing</div>
+          <div class="apoint">Weekly demos & progress reports</div>
+          <div class="apoint">Dedicated product ownership</div>
+        </div>
+        <a href="#contact" class="btn btn-prime">Talk to Our Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech stack -->
+<section class="tech">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Our Stack</span>
+      <h2>Built On Modern <span class="grad">Technology</span></h2>
+    </div>
+    <div class="tech-grid reveal">
+      <div class="tech-chip"><i></i>React / Next.js</div>
+      <div class="tech-chip"><i></i>Node.js</div>
+      <div class="tech-chip"><i></i>Python / Django</div>
+      <div class="tech-chip"><i></i>Flutter</div>
+      <div class="tech-chip"><i></i>React Native</div>
+      <div class="tech-chip"><i></i>PostgreSQL</div>
+      <div class="tech-chip"><i></i>MongoDB</div>
+      <div class="tech-chip"><i></i>Redis</div>
+      <div class="tech-chip"><i></i>Kubernetes</div>
+      <div class="tech-chip"><i></i>Docker</div>
+      <div class="tech-chip"><i></i>AWS</div>
+      <div class="tech-chip"><i></i>GCP</div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Client Voices</span>
+      <h2>What Our <span class="grad">Partners Say</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"NexTech rebuilt our platform in four months. Load times dropped 60% and our users noticed immediately. Truly senior engineers."</p>
+        <div class="testi-user"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Rohan"><div><h5>Rohan Kapoor</h5><span>CTO, Finora</span></div></div>
+      </div>
+      <div class="testi reveal d1">
+        <div class="testi-stars">★★★★★</div>
+        <p>"From architecture to cloud migration, they handled everything. The most transparent dev partner we've worked with."</p>
+        <div class="testi-user"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Ananya"><div><h5>Ananya Mehta</h5><span>VP Product, MediCloud</span></div></div>
+      </div>
+      <div class="testi reveal d2">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Our app hit #3 in the App Store within six weeks of launch. The mobile team is world-class, period."</p>
+        <div class="testi-user"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Vikram"><div><h5>Vikram Singh</h5><span>Founder, FitTrack</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-inner reveal">
+    <h2>Have A Project In Mind? <span class="grad">Let's Build It.</span></h2>
+    <p>Get a free, no-obligation consultation and a detailed proposal within 48 hours.</p>
+    <a href="#contact" class="btn btn-prime" style="font-size:15px;padding:18px 40px">Start the Conversation →</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Get In Touch</span>
+      <h2>Start Your <span class="grad">Project</span></h2>
+      <p>Tell us about your goals. We'll get back to you within one business day.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="c-cards">
+        <div class="c-card reveal"><div class="icon">📍</div><div><h4>Visit Us</h4><p>Tower A, Cyber City,<br>DLF Phase 3, Gurugram,<br>Haryana 122002, India</p></div></div>
+        <div class="c-card reveal d1"><div class="icon">📞</div><div><h4>Call Us</h4><p><a href="tel:+9112445678901">+91 124 4567 8901</a> (Office)<br><a href="tel:+919876543210">+91 98765 43210</a> (Sales)<br>Mon–Sat, 9AM – 7PM IST</p></div></div>
+        <div class="c-card reveal d2"><div class="icon">✉️</div><div><h4>Email Us</h4><p>info@nextechsolutions.in<br>Replies within 24 hours</p></div></div>
+        <div class="c-card reveal d3"><div class="icon">🕐</div><div><h4>Office Hours</h4><p>Mon–Fri: 9AM – 7PM<br>Sat: 10AM – 4PM</p></div></div>
+      </div>
+      <form class="contact-form reveal d1" id="contactForm">
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" required placeholder="Your name"></div>
+          <div class="form-group"><label>Company</label><input type="text" placeholder="Company (optional)"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Email *</label><input type="email" required placeholder="you@company.com"></div>
+          <div class="form-group"><label>Phone *</label><input type="tel" required placeholder="+91 90000 00000"></div>
+        </div>
+        <div class="form-group"><label>Service Needed</label>
+          <select>
+            <option>Web Development</option>
+            <option>Mobile App Development</option>
+            <option>Cloud & DevOps</option>
+            <option>UI/UX Design</option>
+            <option>Full Product Build</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Project Details</label><textarea placeholder="Tell us about your project, timeline and budget..."></textarea></div>
+        <button type="submit" class="btn btn-prime" style="width:100%;justify-content:center">Send Message</button>
+        <div class="form-success" id="formSuccess">
+          <div class="big">🚀</div>
+          <h3>Message Sent!</h3>
+          <p>Thanks for reaching out. Our team will contact you within 24 hours.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#home" class="logo"><span class="mark"><i></i></span>Nex<span>Tech</span></a>
+      <p>Full-stack engineering studio building web, mobile and cloud products that move business. Made in Gurugram, shipped worldwide.</p>
+      <div class="foot-social">
+        <a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">X</a><a href="#" aria-label="GitHub">GH</a><a href="#" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li><li><a href="#portfolio">Work</a></li><li><a href="#clients">Clients</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Web Development</a></li><li><a href="#services">Mobile Apps</a></li><li><a href="#services">Cloud & DevOps</a></li><li><a href="#services">UI/UX Design</a></li><li><a href="#services">Maintenance & Support</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Newsletter</h4>
+      <p style="color:var(--muted);font-size:14px">Engineering insights and product tips, monthly.</p>
+      <form class="news-form" id="newsForm">
+        <input type="email" required placeholder="Your email">
+        <button type="submit" aria-label="Subscribe">→</button>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 NexTech Solutions Pvt Ltd. All rights reserved. | Tower A, Cyber City, DLF Phase 3, Gurugram, Haryana 122002, India | +91 124 4567 8901</div>
+</footer>
+
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<!-- WhatsApp float -->
+<a id="waBtn" href="https://wa.me/919876543210" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.8h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.7.97.99-3.61-.24-.38a9.79 9.79 0 1 1 8.32 4.6zm8.63-17.37A11.71 11.71 0 0 0 12.04 0C5.5 0 .18 5.32.18 11.86c0 2.09.55 4.13 1.59 5.93L.13 24l6.38-1.67a11.85 11.85 0 0 0 5.53 1.4h.01c6.53 0 11.85-5.32 11.85-11.86 0-3.17-1.23-6.15-3.23-8.44z"/></svg>
+</a>
+
+<!-- Scroll progress -->
+<div id="progressBar"></div>
+
+<script>
+// Preloader
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hide'),500));
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+
+// Mobile menu
+const burger=document.getElementById('burger'),mMenu=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');mMenu.classList.toggle('open');});
+mMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');mMenu.classList.remove('open');}));
+
+// Reveal on scroll
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Counters
+const cio=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,target=parseFloat(el.dataset.count),dec=parseInt(el.dataset.decimals||0),dur=1700,start=performance.now();
+    const step=(now)=>{
+      const p=Math.min((now-start)/dur,1),val=target*(1-Math.pow(1-p,3));
+      el.textContent=dec?val.toFixed(dec):Math.floor(val).toLocaleString();
+      if(p<1)requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);cio.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+// Portfolio filter
+const tabs=document.querySelectorAll('.port-tab');
+const cards=document.querySelectorAll('.port-card');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');
+    const f=tab.dataset.filter;
+    cards.forEach(c=>{
+      const show=f==='all'||c.dataset.cat===f;
+      c.style.display=show?'block':'none';
+      if(show){c.classList.remove('in');void c.offsetWidth;c.classList.add('in');}
+    });
+  });
+});
+
+// Forms
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  f.querySelectorAll('input,textarea,select').forEach(x=>{x.style.display='none';});
+  f.querySelector('button[type=submit]').style.display='none';
+  document.getElementById('formSuccess').classList.add('open');
+});
+document.getElementById('newsForm').addEventListener('submit',e=>{e.preventDefault();e.target.reset();alert('Subscribed! Thank you for joining the NexTech newsletter.');});
+
+// Back to top
+const toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>toTop.classList.toggle('show',window.scrollY>500));
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// Scroll progress
+const pBar=document.getElementById('progressBar');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  pBar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
+});
+window.dispatchEvent(new Event('scroll'));
+
+// Active nav link
+const sections=[...document.querySelectorAll('section,header')];
+const navLinks=[...document.querySelectorAll('.nav-links a')];
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-180)cur=s.id;});
+  navLinks.forEach(l=>l.style.color=l.getAttribute('href')==='#'+cur?'var(--cyan)':'');
+});
+
+// 3D geometric animated background (hero)
+const canvas=document.getElementById('geoCanvas');
+const ctx=canvas.getContext('2d');
+let W,H,cubes=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+// Create floating wireframe cubes
+const colors=['59,130,246','34,211,238','139,92,246'];
+for(let i=0;i<16;i++){
+  cubes.push({
+    x:Math.random()*W,y:Math.random()*H,
+    z:Math.random()*400,
+    size:20+Math.random()*45,
+    rotX:Math.random()*Math.PI,rotY:Math.random()*Math.PI,
+    vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6,vz:Math.random()*.8,
+    vrX:(Math.random()-.5)*.01,vrY:(Math.random()-.5)*.01,
+    c:colors[Math.floor(Math.random()*colors.length)]
+  });
+}
+function drawCube(cx,cy,size,rotX,rotY,alpha,color){
+  const cosA=Math.cos(rotX),sinA=Math.sin(rotX);
+  const cosB=Math.cos(rotY),sinB=Math.sin(rotY);
+  const s=size/2;
+  const verts=[
+    [-s,-s,-s],[s,-s,-s],[s,s,-s],[-s,s,-s],
+    [-s,-s,s],[s,-s,s],[s,s,s],[-s,s,s]
+  ].map(v=>{
+    let[x,y,z]=v;
+    // rotate Y
+    let x1=x*cosB+z*sinB,z1=-x*sinB+z*cosB;
+    // rotate X
+    let y1=y*cosA-z1*sinA,z2=y*sinA+z1*cosA;
+    return [cx+x1,cy+y1,z2];
+  });
+  // Project z for perspective scale
+  const edges=[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+  ctx.strokeStyle=`rgba(${color},${alpha})`;
+  ctx.lineWidth=1;
+  edges.forEach(([a,b])=>{
+    ctx.beginPath();
+    ctx.moveTo(verts[a][0],verts[a][1]);
+    ctx.lineTo(verts[b][0],verts[b][1]);
+    ctx.stroke();
+  });
+}
+function animate(){
+  ctx.clearRect(0,0,W,H);
+  // sort by z for depth
+  const sorted=[...cubes].sort((a,b)=>b.z-a.z);
+  sorted.forEach(c=>{
+    c.x+=c.vx;c.y+=c.vy;c.z+=c.vz;c.rotX+=c.vrX;c.rotY+=c.vrY;
+    if(c.x<-100)c.x=W+100;if(c.x>W+100)c.x=-100;
+    if(c.y<-100)c.y=H+100;if(c.y>H+100)c.y=-100;
+    if(c.z<0)c.z=500;if(c.z>500)c.z=0;
+    const scale=1-(c.z/600);
+    const alpha=(0.08+scale*0.22);
+    drawCube(c.x,c.y,c.size*scale,c.rotX,c.rotY,alpha,c.c);
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+</body>
+</html>
